@@ -2,37 +2,30 @@ package game;
 
 import java.util.Scanner;
 
-public class Start {
-
-	public static boolean gameLoop = true;
-	public static Player player;
-	
-	public static void main(String[] args) {
+public class StartMenu {
+	public static void startGame(Scanner input) {
+		System.out.println("------------------------------");
+		System.out.println("Bem vindo ao mundo de Duelmons");
+		System.out.println("------------------------------");
+		System.out.println("Opção\t Descrição");
+		System.out.println("1\t Começar novo jogo");
+		System.out.println("2\t Sair do jogo");
+		System.out.println("-------------------");
+		System.out.println("Escolha uma opção:");
 		
-		while (gameLoop) {
-			System.out.println("------------------------------");
-			System.out.println("Bem vindo ao mundo de Duelmons");
-			System.out.println("------------------------------");
-			System.out.println("Opção\t Descrição");
-			System.out.println("1\t Começar novo jogo");
-			System.out.println("2\t Sair do jogo");
-			System.out.println("-------------------");
-			System.out.println("Escolha uma opção:");
-			
-			Scanner input = new Scanner(System.in);
-			int opcao = input.nextInt();
-			input.nextLine();
+		int opcao = input.nextInt();
+		input.nextLine();
 
-			switch (opcao) {
-			case 1:
-				player = comecarJogo(input);
-				break;
-			case 2:
-				sairJogo(input);
-				break;
-			default:
-				break;
-			}
+		switch (opcao) {
+		case 1:
+			Main.player = comecarJogo(input);
+			Main.gameState = "GAMEPLAY";
+			break;
+		case 2:
+			sairJogo(input);
+			break;
+		default:
+			break;
 		}
 	}
 	
@@ -63,7 +56,7 @@ public class Start {
 
 		switch (opcao) {
 		case 1:
-			gameLoop = false;
+			Main.gameLoop = false;
 			break;
 		case 2:
 			break;
@@ -71,5 +64,4 @@ public class Start {
 			break;
 		}
 	}
-
 }
