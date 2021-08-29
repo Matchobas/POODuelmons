@@ -22,7 +22,7 @@ public class StartMenu {
 			Main.gameState = "GAMEPLAY";
 			break;
 		case 2:
-			sairJogo(input);
+			GameOptions.sairJogo(input);
 			break;
 		default:
 			break;
@@ -39,29 +39,5 @@ public class StartMenu {
 		Player player = new Player(playerName);
 		
 		return player;
-	}
-	
-	public static void sairJogo(Scanner input) {
-		System.out.println("------------------------------");
-		System.out.println("Você tem certeza que deseja sair do jogo?");
-		System.out.println("------------------------------");
-		System.out.println("Opção\t Descrição");
-		System.out.println("1\t Sim");
-		System.out.println("2\t Não");
-		System.out.println("-------------------");
-		System.out.println("Escolha uma opção:");
-		
-		int opcao = input.nextInt();
-		input.nextLine();
-
-		switch (opcao) {
-		case 1:
-			Main.gameLoop = false;
-			break;
-		case 2:
-			break;
-		default:
-			break;
-		}
 	}
 }

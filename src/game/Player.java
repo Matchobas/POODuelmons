@@ -1,8 +1,11 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 	private String nome;
-	private int duelmons;
+	private List<Duelmon> duelmons = new ArrayList<Duelmon>();
 	private int money = 0;
 	
 	public Player(String nome) {
@@ -18,12 +21,12 @@ public class Player {
 		this.nome = nome;
 	}
 
-	public int getDuelmons() {
+	public List<Duelmon> getDuelmons() {
 		return duelmons;
 	}
 
-	public void setDuelmons(int duelmons) {
-		this.duelmons = duelmons;
+	public void addDuelmon(Duelmon duelmon) {
+		this.duelmons.add(duelmon);
 	}
 
 	public int getMoney() {
