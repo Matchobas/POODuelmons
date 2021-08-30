@@ -2,24 +2,26 @@ package game;
 
 import java.util.Scanner;
 
+import characters.Player;
+
 public class StartMenu {
 	public static void startGame(Scanner input) {
 		System.out.println("------------------------------");
 		System.out.println("Bem vindo ao mundo de Duelmons");
 		System.out.println("------------------------------");
-		System.out.println("Opção\t Descrição");
-		System.out.println("1\t Começar novo jogo");
+		System.out.println("Opcao\t Descricao");
+		System.out.println("1\t Comecar novo jogo");
 		System.out.println("2\t Sair do jogo");
 		System.out.println("-------------------");
-		System.out.println("Escolha uma opção:");
+		System.out.println("Escolha uma opcao:");
 		
 		int opcao = input.nextInt();
 		input.nextLine();
 
 		switch (opcao) {
 		case 1:
-			Main.player = comecarJogo(input);
 			Main.gameState = "GAMEPLAY";
+			Main.player = comecarJogo(input);
 			break;
 		case 2:
 			GameOptions.sairJogo(input);

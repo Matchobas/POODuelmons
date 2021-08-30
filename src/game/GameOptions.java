@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class GameOptions {
 	public static boolean sairJogo(Scanner input) {
 		System.out.println("------------------------------");
-		System.out.println("Você tem certeza que deseja sair do jogo?");
+		System.out.println("Voce tem certeza que deseja sair do jogo?");
 		System.out.println("------------------------------");
-		System.out.println("Opção\t Descrição");
+		System.out.println("Opcao\t Descricao");
 		System.out.println("1\t Sim");
-		System.out.println("2\t Não");
+		System.out.println("2\t Nao");
 		System.out.println("-------------------");
-		System.out.println("Escolha uma opção:");
+		System.out.println("Escolha uma opcao:");
 		
 		int opcao = input.nextInt();
 		input.nextLine();

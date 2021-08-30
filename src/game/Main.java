@@ -1,6 +1,9 @@
 package game;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import characters.Player;
 
 public class Main {
 
@@ -9,14 +12,14 @@ public class Main {
 	
 	public static String gameState = "START_MENU";
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
 		
 		while (gameLoop) {
 			
 			switch (gameState) {
 			case "START_MENU":
-				StartMenu.comecarJogo(input);
+				StartMenu.startGame(input);
 				break;
 			
 			case "GAMEPLAY":
