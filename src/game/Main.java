@@ -25,6 +25,11 @@ public class Main {
 			case "GAMEPLAY":
 				Gameplay.startGameplay(input, player);
 				break;
+			case "FIM":
+				gameLoop = false;
+				System.out.println("Infelizmente e so ate aqui que vai nossa demo :(\nEspero que tenha gostado!");
+				System.out.println("Fim");
+				break;
 			}
 		}
 	}

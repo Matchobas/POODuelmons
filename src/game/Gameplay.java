@@ -8,6 +8,11 @@ import characters.Player;
 import duelmons.Duelmon;
 import duelmons.Fogarel;
 import duelmons.Xarcado;
+import items.Item;
+import items.Potion;
+import items.Revive;
+import terrain.Grass;
+import terrain.Sand;
 
 public class Gameplay {
 	public static void startGameplay(Scanner input, Player player) throws IOException {
@@ -34,6 +39,9 @@ public class Gameplay {
 			fogarel.setLevel(5);
 			fogarel.setMestre (player);
 			player.addDuelmon(fogarel);
+			
+			addInitialItems(player);
+			
 			break;
 		case 2:
 			Duelmon xarcado = new Xarcado();
@@ -41,6 +49,9 @@ public class Gameplay {
 			xarcado.setLevel(5);
 			xarcado.setMestre (player);
 			player.addDuelmon(xarcado);
+			
+			addInitialItems(player);
+			
 			break;
 		case 9:
 			boolean exited = GameOptions.sairJogo(input);
@@ -53,7 +64,7 @@ public class Gameplay {
 		if (!out) {
 			System.out.println("------------------------------");
 			System.out.println("Agora com seu " + player.getDuelmons().get(0).getName() + ", Eh hora"
-					+ "\n de escolher para onde voce vai");
+					+ " de escolher para onde voce vai se aventurar!");
 			System.out.println("------------------------------");
 			System.out.println("Existem dois caminhos");
 			System.out.println("Opcao\t Descricao");
@@ -68,26 +79,39 @@ public class Gameplay {
 		
 			switch (option) {
 			case 1:
-				System.out.println("Na cidade voce encontrou um oponente com um Fogareu!");
-				Opponent opCidade = new Opponent("Oponente da cidade");
+				System.out.println("A cidade parece abandonada, e tudo esta cheio de areia...");
+				System.out.println("Ate que voce encontrou um oponente com um Fogarel!");
+				
+				Opponent opCidade = new Opponent("Oponente da cidade", 1);
 				Duelmon opFogarel = new Fogarel();
 				opCidade.addDuelmon(opFogarel);
+				Sand areia = new Sand();
+				
 				System.out.println("Pressione enter para iniciar a batalha!");
 				System.in.read();
-				player.desafiar(opCidade);
+				player.desafiar(opCidade, areia);
 				System.out.println("Pressione qualquer tecla para continuar");
 				System.in.read();
+				Main.gameState = "FIM";
 				
 				break;
 			case 2:
-				System.out.println("Na floresta voce encontrou um oponente com um Xarcado!");
-				Opponent opFloresta = new Opponent("Oponente da cidade");
+				System.out.println("A grama alta tem um cheiro bom enquanto voce anda na floresta...");
+				System.out.println("De repente voce enconta um oponente com um Xarcado!\n");
+				
+				Opponent opFloresta = new Opponent("Oponente da floresta", 1);
 				Duelmon opXarcado = new Xarcado();
 				opFloresta.addDuelmon(opXarcado);
-				System.out.println("Iniciando a batalha!");
-				player.desafiar(opFloresta);
+				Grass grama = new Grass();
+				
+				System.out.println("Iniciando a batalha! *sons de comeco de batalha*\n");
+				System.out.println("Pressione enter para iniciar a batalha!");
+				System.in.read();
+				player.desafiar(opFloresta, grama);
 				System.out.println("Pressione enter para continuar");
 				System.in.read();
+				Main.gameState = "FIM";
+				
 				break;
 			case 9:
 				// Esse formato de sempre poder sair do jogo nao ta dando certo, melhor mudar pra outra coisa
@@ -97,5 +121,14 @@ public class Gameplay {
 				break;
 			}
 		}
+	}
+	
+	public static void addInitialItems(Player player) {
+		Item potion = new Potion();
+		Item revive = new Revive();
+		System.out.println("\nVoce tambem recebe uma " + potion.getNome() + " e um " + revive.getNome());
+		
+		player.addItem(potion);
+		player.addItem(revive);
 	}
 }

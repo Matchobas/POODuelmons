@@ -7,10 +7,11 @@ public class Xarcado extends Duelmon {
 		this.setName("Xarcado");
 		this.setLevel(1);
 		this.setType("Agua");
-		this.setVida(70);
-		this.setAttackStat(18);
-		this.setDefenseStat(30);
+		this.setVida(80);
+		this.setAttackStat(30);
+		this.setDefenseStat(15);
 		this.setVelocidade(13);
+		vidaMax = this.getVida();
 	}
 
 }

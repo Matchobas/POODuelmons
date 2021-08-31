@@ -9,14 +9,20 @@ public class Revive extends Item {
 	}
 
 	@Override
-	protected Duelmon use(Duelmon duelmon) throws Exception {
+	public boolean use(Duelmon duelmon) {
 		if (duelmon.getVida() > 0) {
-			throw new Exception("Nao eh possivel usar ressucitador em um duelmon vivo");
+			System.out.println("Nao eh possivel usar ressucitador em um duelmon vivo");
+			return false;
 		}
 		else {
-			duelmon.setVida(10);
-			return duelmon;
+			duelmon.setVida(30);
+			return true;
 		}
+	}
+
+	@Override
+	public void itemDescription() {
+		System.out.println("Revive um Duelmon derrotado -- Recupera a vida do Duelmon para 30");
 	}
 
 }

@@ -14,7 +14,9 @@ public abstract class Item {
 		this.nome = nome;
 	}
 	
-	protected abstract Duelmon use(Duelmon duelmon) throws Exception;
+	public abstract void itemDescription();
+	
+	public abstract boolean use(Duelmon duelmon);
 	
 
 }

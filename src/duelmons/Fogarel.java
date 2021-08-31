@@ -7,10 +7,11 @@ public class Fogarel extends Duelmon{
 		this.setName("Fogarel");
 		this.setLevel(1);
 		this.setType("Fogo");
-		this.setVida(50);
-		this.setAttackStat(35);
+		this.setVida(100);
+		this.setAttackStat(30);
 		this.setDefenseStat(10);
 		this.setVelocidade(32);
+		vidaMax = this.getVida();
 	}
 
 }

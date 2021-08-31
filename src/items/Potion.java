@@ -9,14 +9,23 @@ public class Potion extends Item {
 	}
 
 	@Override
-	protected Duelmon use(Duelmon duelmon) throws Exception {
+	public boolean use(Duelmon duelmon){
 		
 		if (duelmon.getVida() < 0.01) {
-			throw new Exception("Nao eh possivel usar pocao em um duelmon desmaiado");
+			System.out.println("Nao eh possivel usar pocao em um duelmon desmaiado");
+			return false;
 		}
 		else {
-			duelmon.setVida(duelmon.getVida() + 20);
-			return duelmon;
+			duelmon.setVida(duelmon.getVida() + 50);
+			if (duelmon.getVida() > duelmon.getVidaMax()) {
+				duelmon.setVida(duelmon.getVidaMax());
+			}
+			return true;
 		}
+	}
+
+	@Override
+	public void itemDescription() {
+		System.out.println("Pocao de recuperacao de vida -- Recupera 60 pontos de vida");
 	}
 }
