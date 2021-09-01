@@ -21,7 +21,7 @@ public class StartMenu {
 		switch (opcao) {
 		case 1:
 			Main.gameState = "GAMEPLAY";
-			Main.player = comecarJogo(input);
+			Main.player = playerSelect(input);
 			break;
 		case 2:
 			GameOptions.sairJogo(input);
@@ -31,7 +31,7 @@ public class StartMenu {
 		}
 	}
 	
-	public static Player comecarJogo(Scanner input) {
+	public static Player playerSelect(Scanner input) {
 		System.out.println("------------------------------");
 		System.out.println("Hora de escolher o nome do seu personagem");
 		System.out.println("------------------------------");

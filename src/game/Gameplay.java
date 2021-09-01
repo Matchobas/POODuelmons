@@ -82,7 +82,8 @@ public class Gameplay {
 				System.out.println("A cidade parece abandonada, e tudo esta cheio de areia...");
 				System.out.println("Ate que voce encontrou um oponente com um Fogarel!");
 				
-				Opponent opCidade = new Opponent("Oponente da cidade", 1);
+				Opponent opCidade = new Opponent("Oponente da cidade");
+				opCidade.calculaRecompensa(1);
 				Duelmon opFogarel = new Fogarel();
 				opCidade.addDuelmon(opFogarel);
 				Sand areia = new Sand();
@@ -99,7 +100,8 @@ public class Gameplay {
 				System.out.println("A grama alta tem um cheiro bom enquanto voce anda na floresta...");
 				System.out.println("De repente voce enconta um oponente com um Xarcado!\n");
 				
-				Opponent opFloresta = new Opponent("Oponente da floresta", 1);
+				Opponent opFloresta = new Opponent("Oponente da floresta");
+				opFloresta.calculaRecompensa(1);
 				Duelmon opXarcado = new Xarcado();
 				opFloresta.addDuelmon(opXarcado);
 				Grass grama = new Grass();
